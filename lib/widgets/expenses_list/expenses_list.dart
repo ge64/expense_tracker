@@ -6,7 +6,7 @@ import 'package:expense_tracker/widgets/expenses_list/expense_item.dart';
 class ExpensesList extends StatelessWidget {
   const ExpensesList({
     super.key,
-    required this.expenses, 
+    required this.expenses,
     required this.onRemoveExpense,
   });
 
@@ -20,6 +20,10 @@ class ExpensesList extends StatelessWidget {
       itemBuilder: (ctx, index) => Dismissible(
         key: ValueKey(
           expenses[index],
+        ),
+        background: Container(
+          color: Theme.of(context).colorScheme.error.withOpacity(0.75),
+          margin: Theme.of(context).cardTheme.margin,
         ),
         onDismissed: (direction) {
           onRemoveExpense(expenses[index]);
